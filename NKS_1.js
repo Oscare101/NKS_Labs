@@ -118,8 +118,20 @@ const d01 = +(
   (statisticalDensityRes[0] - gamma) /
   (statisticalDensityRes[0] - 1)
 ).toFixed(2)
+// ДОДАТКОВЕ ЗАВДАННЯ:
+let stepGamma
+for (let i = 0; i < statisticalDensityRes.length; i++) {
+  if (gamma > statisticalDensityRes[i]) {
+    //перевірка в якому інтервалі знаходиться gamma
+    stepGamma = i
+    break
+  }
+}
 console.log('d(', +(1 - gamma).toFixed(2), ')', d01)
-const tGamma = +(intervalBounds[0][1] - intervalBounds[0][1] * d01).toFixed(2)
+const tGamma = +(
+  intervalBounds[stepGamma][1] -
+  intervalBounds[stepGamma][1] * d01
+).toFixed(2)
 console.log('T(', gamma, ')', tGamma)
 
 //
